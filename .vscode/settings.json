@@ -1,0 +1,28 @@
+{
+    "makefile.extensionOutputFolder": "./.vscode",
+    "VsCodeTaskButtons.showCounter": true,
+    "VsCodeTaskButtons.tasks": [
+        {
+            "label": "$(wrench) Configure",
+            "task": "配置CMake",
+            "tooltip": "Configure the project with CMake"
+        },
+        {
+            "label": "$(tools) Build",
+            "task": "用ninja编译",
+            "tooltip": "Build the project"
+        },
+        {
+            "label": "$(trash) Clean",
+            "task": "Clean",
+            "tooltip": "Build the project"
+        },
+    ],
+    "clangd.arguments": [
+        "--compile-commands-dir=${workspaceFolder}/build",
+        "--header-insertion=never",
+         "--all-scopes-completion",
+        "--completion-style=detailed",
+        "--query-driver=/home/hao/luckfox-pico/tools/linux/toolchain/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-gcc",
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "配置CMake",
+            "type": "shell",
+            "command": "cmake -S . -B build -G Ninja",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "Rebuild the CMake build system."
+        },
+        {
+            "label": "用ninja编译",
+            "type": "shell",
+            "command": "cmake --build build/",
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Build the project using Ninja with 16 jobs."
+        },
+        {
+			"type": "shell",
+			"label": "Clean",
+			"command": "rm",
+			"args": [
+				"-rf",
+				"${workspaceFolder}/build" // 删除build目录
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "清理CMake构建目录"
+		},
+    ]
+}

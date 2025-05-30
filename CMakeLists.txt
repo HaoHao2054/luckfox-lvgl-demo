@@ -7,24 +7,22 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin) # For older CMake compatibility
 
-# Enable compile command to ease indexing with e.g. clangd
-set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
-# 启用 Ninja 颜色支持
-add_compile_options(-fdiagnostics-color=always)
+# --- other tools Configuration  ---
+set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)             # Enable compile command to ease indexing with e.g. clangd
+add_compile_options(-fdiagnostics-color=always)     # Ninja 
 
 # --- Toolchain Configuration ---
 include(${CMAKE_SOURCE_DIR}/toolchain-arm-rockchip.cmake)
 
 # --- Compiler Flags (Project-Wide) ---
-# These flags will be inherited by targets in subdirectories.
 add_compile_options(
     -O3 -g0
     # C Specific
     $<$<COMPILE_LANGUAGE:C>:-std=c99>
-    # C++ Specific (如果需要特定标准)
+    # C++ Specific
     # $<$<COMPILE_LANGUAGE:CXX>:-std=c++17> # 例如
 
-    # Common Warnings (CMake会自动用空格分隔)
+    # Common Warnings
     -Wall -Wshadow -Wundef -Wmissing-prototypes -Wno-discarded-qualifiers -Wextra
     -Wno-unused-function -Wno-error=strict-prototypes -Wpointer-arith -fno-strict-aliasing
     -Wno-error=cpp -Wuninitialized -Wmaybe-uninitialized -Wno-unused-parameter
