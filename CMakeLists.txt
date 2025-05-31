@@ -7,7 +7,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin) # For older CMake compatibility
 
-# --- other tools Configuration  ---
+# --- Other Tools Configuration  ---
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)             # Enable compile command to ease indexing with e.g. clangd
 add_compile_options(-fdiagnostics-color=always)     # Ninja 
 
@@ -50,7 +50,7 @@ add_executable(${PROJECT_NAME}
 
 target_include_directories(${PROJECT_NAME} PUBLIC 
     "${CMAKE_SOURCE_DIR}"      
-    "${CMAKE_SOURCE_DIR}/lib"
+    "${CMAKE_SOURCE_DIR}/lib/lv_port_linux"
     "${CMAKE_SOURCE_DIR}/app"
     "${CMAKE_SOURCE_DIR}/bsp"
     "${CMAKE_SOURCE_DIR}/bsp/c_keypad"

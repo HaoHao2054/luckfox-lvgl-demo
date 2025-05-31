@@ -10,7 +10,7 @@ add_library(images STATIC
 )
 target_include_directories(images PUBLIC
     "${CMAKE_CURRENT_SOURCE_DIR}/"
-    "${CMAKE_SOURCE_DIR}/lib"
+    "${CMAKE_SOURCE_DIR}/lib/lv_port_linux"
 )
 
 message(STATUS "images/CMakeLists.txt: Defined images library.")

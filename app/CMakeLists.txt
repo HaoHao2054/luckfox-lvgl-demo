@@ -9,6 +9,8 @@ add_library(app_custom STATIC
 
 target_include_directories(app_custom PUBLIC
     "${CMAKE_CURRENT_SOURCE_DIR}/" 
+    "${CMAKE_SOURCE_DIR}/lib/lv_port_linux"
+    "${CMAKE_SOURCE_DIR}/bsp"
 )
 
 message(STATUS "app/CMakeLists.txt: Defined lvgl_core library.")

@@ -31,6 +31,10 @@
 #ifndef __SYSFS_GPIO_
 #define __SYSFS_GPIO_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdio.h>
 
 #define SYSFS_GPIO_IN  0
@@ -54,6 +58,11 @@ int SYSFS_GPIO_Export(int Pin);
 int SYSFS_GPIO_Unexport(int Pin);
 int SYSFS_GPIO_Direction(int Pin, int Dir);
 int SYSFS_GPIO_Read(int Pin);
-int SYSFS_GPIO_Write(int Pin, int value);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
+
+

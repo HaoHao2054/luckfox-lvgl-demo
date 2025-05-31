@@ -10,8 +10,8 @@ add_library(lib_custom STATIC
 )
 
 target_include_directories(lib_custom PUBLIC
-    "${CMAKE_CURRENT_SOURCE_DIR}/" 
-    "${CMAKE_CURRENT_SOURCE_DIR}/lvgl"    
-    "${CMAKE_CURRENT_SOURCE_DIR}/lv_drivers" 
+    "${CMAKE_CURRENT_SOURCE_DIR}/lv_port_linux" 
+    "${CMAKE_CURRENT_SOURCE_DIR}/lv_port_linux/lvgl"    
+    "${CMAKE_CURRENT_SOURCE_DIR}/lv_port_linux/lv_drivers" 
 )
 message(STATUS "lib/CMakeLists.txt: Defined lvgl_core library.")

@@ -77,7 +77,7 @@ int main(void)
         else if(GET_KEYB == 0){
             lv_show_img(img,cat);
         }
-       else if(GET_KEYX == 0){
+        else if(GET_KEYX == 0){
             lv_show_img(img,galaxy);
         }            
         else if(GET_KEYY == 0){
