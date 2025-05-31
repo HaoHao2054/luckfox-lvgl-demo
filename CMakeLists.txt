@@ -45,7 +45,7 @@ add_subdirectory(images)
 
 # --- Define the project executable ---
 add_executable(${PROJECT_NAME}
-    main.c
+    main.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC 
@@ -62,9 +62,13 @@ target_link_directories(${PROJECT_NAME} PRIVATE
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
-    lib_custom     # From lib/CMakeLists.txt (if created)
-    bsp_custom     # From bsp/CMakeLists.txt
-    app_custom     # From app/CMakeLists.txt
+    # lib_custom     # From lib/CMakeLists.txt (if created)
+    # bsp_custom     # From bsp/CMakeLists.txt
+    # app_custom     # From app/CMakeLists.txt
+
+    app_custom       # 这个库引用了 lib_custom 和 bsp_custom 中的函数
+    lib_custom       # 定义了 app_custom 所需的函数
+    bsp_custom       # 定义了 app_custom 所需的函数
     images         # From images/CMakeLists.txt
 )
 

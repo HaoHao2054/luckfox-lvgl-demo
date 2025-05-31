@@ -1,7 +1,7 @@
 file(GLOB_RECURSE BSP_SOURCES 
-    "${CMAKE_CURRENT_SOURCE_DIR}/*.c"
-    "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/*.cc"
+    "${CMAKE_CURRENT_SOURCE_DIR}/c_keypad/*.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/c_keypad/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/c_keypad/*.cc"
 )
 
 
