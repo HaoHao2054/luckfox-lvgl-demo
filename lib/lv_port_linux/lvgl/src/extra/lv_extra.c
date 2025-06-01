@@ -42,8 +42,16 @@ void lv_extra_init(void)
     lv_grid_init();
 #endif
 
+#if LV_USE_MSG
+    lv_msg_init();
+#endif
+
 #if LV_USE_FS_FATFS != '\0'
     lv_fs_fatfs_init();
+#endif
+
+#if LV_USE_FS_LITTLEFS != '\0'
+    lv_fs_littlefs_init();
 #endif
 
 #if LV_USE_FS_STDIO != '\0'
@@ -56,6 +64,10 @@ void lv_extra_init(void)
 
 #if LV_USE_FS_WIN32 != '\0'
     lv_fs_win32_init();
+#endif
+
+#if LV_USE_FFMPEG
+    lv_ffmpeg_init();
 #endif
 
 #if LV_USE_PNG
@@ -71,9 +83,12 @@ void lv_extra_init(void)
 #endif
 
 #if LV_USE_FREETYPE
-    /*Init freetype library
-     *Cache max 64 faces and 1 size*/
-    lv_freetype_init(0, 0, LV_FREETYPE_CACHE_SIZE);
+    /*Init freetype library*/
+#  if LV_FREETYPE_CACHE_SIZE >= 0
+    lv_freetype_init(LV_FREETYPE_CACHE_FT_FACES, LV_FREETYPE_CACHE_FT_SIZES, LV_FREETYPE_CACHE_SIZE);
+#  else
+    lv_freetype_init(0, 0, 0);
+#  endif
 #endif
 }
 

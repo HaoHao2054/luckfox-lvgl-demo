@@ -1,5 +1,6 @@
 #include "lvgl/lvgl.h"
 #include "lv_drivers/display/fbdev.h"
+#include "app_lvgl_ui.h"
 #include "app_lvgl_init.h"
 #include <unistd.h>
 #include <pthread.h>
@@ -27,7 +28,7 @@ void app_lvgl_init() {
     disp_drv.draw_buf   = &disp_buf;
     disp_drv.flush_cb   = fbdev_flush;
     disp_drv.hor_res    = 240;
-    disp_drv.ver_res    = 240;
+    disp_drv.ver_res    = 320;
     lv_disp_drv_register(&disp_drv);
 
 }
@@ -51,7 +52,4 @@ uint32_t custom_tick_get(void) {
     return time_ms;
 }
 
-void app_lvgl_task_handler() {
-    /*Handle LittlevGL tasks*/
-    lv_task_handler();
-}
+

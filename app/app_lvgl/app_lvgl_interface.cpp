@@ -17,16 +17,15 @@ void app_lvgl_thread() {
     app_lvgl_init();
 
     /*Initialize UI*/
-    app_lvgl_ui_init();
-
+    // app_lvgl_ui_init();
+    lv_official_demo();
 
     while (1) {
         // usleep(5000); // Sleep for 5 ms
         std::this_thread::sleep_for(std::chrono::milliseconds(5));
 
         /*Handle LittlevGL tasks*/
-        app_lvgl_task_handler(); // base on lv_timer_handler(), 
-
+        lv_timer_handler();
 
     }
 }

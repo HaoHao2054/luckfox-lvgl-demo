@@ -1,4 +1,6 @@
 #include "app_lvgl_ui.h"
+#include "lvgl/demos/benchmark/lv_demo_benchmark.h"
+#include "lvgl/demos/lv_demos.h"
 
 /*Image declare*/
 LV_IMG_DECLARE(Luckfox);
@@ -16,7 +18,7 @@ void app_lvgl_ui_init() {
     /*Show an image*/
     lv_obj_t *scr = lv_disp_get_scr_act(NULL);
     lv_obj_t *img = lv_img_create(scr);
-    lv_show_img(img, Luckfox);
+    lv_show_img(img, cat);
     lv_obj_center(img);
 
     /*Create a cursor*/
@@ -24,4 +26,13 @@ void app_lvgl_ui_init() {
     lv_img_set_src(cursor, LV_SYMBOL_GPS);
     lv_obj_set_pos(cursor, 70, 120);
     int x = 70, y = 120, move = 0;
+}
+
+void lv_official_demo(void) {
+    
+    lv_demo_widgets();
+    //lv_demo_benchmark();
+    //lv_demo_music();
+    //lv_demo_widgets();
+    //lv_demo_keypad_encoder();
 }

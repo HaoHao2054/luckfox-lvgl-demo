@@ -1,6 +1,6 @@
 /**
  * @file lv_drv_conf.h
- * Configuration file for v8.1.0
+ * Configuration file for v8.2.0
  */
 
 /*
@@ -450,13 +450,13 @@
 #  define EVDEV_NAME   "/dev/input/event0"        /*You can use the "evtest" Linux tool to get the list of devices and test them*/
 #  define EVDEV_SWAP_AXES         0               /*Swap the x and y axes of the touchscreen*/
 
-#  define EVDEV_CALIBRATE         0               /*Scale and offset the touchscreen coordinates by using maximum and minimum values for each axis*/
+#  define EVDEV_CALIBRATE         1               /*Scale and offset the touchscreen coordinates by using maximum and minimum values for each axis*/
 
 #  if EVDEV_CALIBRATE
 #    define EVDEV_HOR_MIN         0               /*to invert axis swap EVDEV_XXX_MIN by EVDEV_XXX_MAX*/
-#    define EVDEV_HOR_MAX      4096               /*"evtest" Linux tool can help to get the correct calibraion values>*/
+#    define EVDEV_HOR_MAX      320               /*"evtest" Linux tool can help to get the correct calibraion values>*/
 #    define EVDEV_VER_MIN         0
-#    define EVDEV_VER_MAX      4096
+#    define EVDEV_VER_MAX      240
 #  endif  /*EVDEV_CALIBRATE*/
 #endif  /*USE_EVDEV*/
 

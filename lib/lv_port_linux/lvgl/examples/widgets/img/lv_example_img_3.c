@@ -11,7 +11,6 @@ static void set_zoom(void * img, int32_t v)
     lv_img_set_zoom(img, v);
 }
 
-
 /**
  * Show transformations (zoom and rotation) using a pivot point.
  */
@@ -38,7 +37,6 @@ void lv_example_img_3(void)
     lv_anim_set_values(&a, 128, 256);
     lv_anim_set_playback_time(&a, 3000);
     lv_anim_start(&a);
-
 }
 
 #endif
