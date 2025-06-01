@@ -1,38 +1,76 @@
-#include "app_keypad_init.h"
 #include "app_keypad_interface.h"
-#include "c_keypad/DEV_Config.h"
-#include "c_keypad/sysfs_gpio.h"
+#include "drivers/Keypad/KeypadManager.hpp"
 
 #include <iostream>
 #include <thread>
 
 
 
-void app_keypad_thread() {
+int app_keypad_thread() {
     /*Initialize the keypad interface*/
-    DEV_ModuleInit();
+    Bsp::KeypadManager myKeypad;
+
+    /* initialize keypad via myKeypad */
+    if (!myKeypad.addKey("UP", 57, Bsp::GpioValue::LOW)) {
+        std::cerr << "Failed to add UP key. Exiting." << std::endl;
+        return 1;
+    }
+    if (!myKeypad.addKey("LEFT", 65, Bsp::GpioValue::LOW)) {
+        std::cerr << "Failed to add LEFT key. Exiting." << std::endl;
+        return 1;
+    }
+    if (!myKeypad.addKey("RIGHT", 67, Bsp::GpioValue::LOW)) {
+        std::cerr << "Failed to add RIGHT key. Exiting." << std::endl;
+        return 1;
+    }
+    if (!myKeypad.addKey("DOWN", 66, Bsp::GpioValue::LOW)) {
+        std::cerr << "Failed to add DOWN key. Exiting." << std::endl;
+        return 1;
+    }
+    if (!myKeypad.addKey("PRESS", 68, Bsp::GpioValue::LOW)) {
+        std::cerr << "Failed to add PRESS key. Exiting." << std::endl;
+        return 1;
+    }
+    if (!myKeypad.addKey("A", 69, Bsp::GpioValue::LOW)) {
+        std::cerr << "Failed to add A key. Exiting." << std::endl;
+        return 1;
+    }
+    if (!myKeypad.addKey("B", 54, Bsp::GpioValue::LOW)) {
+        std::cerr << "Failed to add B key. Exiting." << std::endl;
+        return 1;
+    }
+    if (!myKeypad.addKey("X", 64, Bsp::GpioValue::LOW)) {
+        std::cerr << "Failed to add X key. Exiting." << std::endl;
+        return 1;
+    }
+    if (!myKeypad.addKey("Y", 55, Bsp::GpioValue::LOW)) {
+        std::cerr << "Failed to add Y key. Exiting." << std::endl;
+        return 1;
+    }
 
     while (1) {
         /*Sleep for a short duration to avoid busy waiting*/
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
 
         int i = 0;
-        /*Check if any key is pressed*/
-        if (GET_KEY_UP == 0) {
-            // Handle UP key press
-            i = 1; // Example action for UP key
-        } else if (GET_KEY_DOWN == 0) {
-            // Handle DOWN key press
-            i = 2;
-        } else if (GET_KEY_LEFT == 0) {
-            // Handle LEFT key press
-            i = 3;
-        } else if (GET_KEY_RIGHT == 0) {
-            // Handle RIGHT key press
-            i = 4;
-        } else if (GET_KEY_PRESS == 0) {
-            // Handle PRESS key action
-            i = 5; // Example action for PRESS key
+        if (myKeypad.isKeyPressed("UP")) {
+            i = 1; 
+        } else if (myKeypad.isKeyPressed("DOWN")) {
+            i = 2; 
+        } else if (myKeypad.isKeyPressed("LEFT")) {
+            i = 3; 
+        } else if (myKeypad.isKeyPressed("RIGHT")) {
+            i = 4; 
+        } else if (myKeypad.isKeyPressed("PRESS")) {
+            i = 5; 
+        } else if (myKeypad.isKeyPressed("A")) {
+            i = 6; 
+        } else if (myKeypad.isKeyPressed("B")) {
+            i = 7; 
+        } else if (myKeypad.isKeyPressed("X")) {
+            i = 8; // Action for X key
+        } else if (myKeypad.isKeyPressed("Y")) {
+            i = 9; 
         }
 
         if (i != 0) {

@@ -4,7 +4,7 @@
 extern "C" {
 #endif
 
-void app_keypad_thread();
+int app_keypad_thread();
 
 #ifdef __cplusplus
 }

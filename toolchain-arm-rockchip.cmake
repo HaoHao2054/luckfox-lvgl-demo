@@ -10,7 +10,7 @@ set(CROSS_COMPILER_PREFIX /home/hao/luckfox-pico/tools/linux/toolchain/arm-rockc
 set(CMAKE_C_COMPILER ${CROSS_COMPILER_PREFIX}gcc)
 set(CMAKE_CXX_COMPILER ${CROSS_COMPILER_PREFIX}g++)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Set the sysroot if necessary (often needed for includes and libraries)
