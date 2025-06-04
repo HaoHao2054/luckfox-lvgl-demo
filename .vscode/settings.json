@@ -17,6 +17,11 @@
             "task": "Clean",
             "tooltip": "Build the project"
         },
+         {
+            "label": "$(play) Scp",
+            "task": "SSH传输文件到开发板",
+            "tooltip": "transfer files to the development board via SSH"
+        },
     ],
     "clangd.arguments": [
         "--compile-commands-dir=${workspaceFolder}/build",

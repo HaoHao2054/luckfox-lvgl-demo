@@ -1,7 +1,7 @@
 #include "app_lvgl_ui.h"
 #include "app_lvgl_init.h"
 #include "app_lvgl_interface.h"
-
+#include "app_itc/app_itc.hpp"
 
 
 #include <iostream>

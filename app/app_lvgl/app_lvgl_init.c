@@ -1,11 +1,11 @@
-#include "lvgl/lvgl.h"
-#include "lv_drivers/display/fbdev.h"
-#include "app_lvgl_ui.h"
 #include "app_lvgl_init.h"
-#include <unistd.h>
 #include <pthread.h>
-#include <time.h>
 #include <sys/time.h>
+#include <time.h>
+#include <unistd.h>
+#include "app_lvgl_ui.h"
+#include "lv_drivers/display/fbdev.h"
+#include "lvgl/lvgl.h"
 
 
 void app_lvgl_init() {
@@ -25,12 +25,11 @@ void app_lvgl_init() {
     /*Initialize and register a display driver*/
     static lv_disp_drv_t disp_drv;
     lv_disp_drv_init(&disp_drv);
-    disp_drv.draw_buf   = &disp_buf;
-    disp_drv.flush_cb   = fbdev_flush;
-    disp_drv.hor_res    = 240;
-    disp_drv.ver_res    = 320;
+    disp_drv.draw_buf = &disp_buf;
+    disp_drv.flush_cb = fbdev_flush;
+    disp_drv.hor_res = 240;
+    disp_drv.ver_res = 320;
     lv_disp_drv_register(&disp_drv);
-
 }
 
 
@@ -51,5 +50,3 @@ uint32_t custom_tick_get(void) {
     uint32_t time_ms = now_ms - start_ms;
     return time_ms;
 }
-
-

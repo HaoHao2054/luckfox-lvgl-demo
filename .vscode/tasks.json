@@ -4,7 +4,7 @@
         {
             "label": "配置CMake",
             "type": "shell",
-            "command": "cmake -S . -B build -G Ninja",
+            "command": "cmake -S . -B build -G Ninja -DCMAKE_CXX_COMPILER_TARGET=arm-linux-gnueabihf",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -21,18 +21,40 @@
             "detail": "Build the project using Ninja with 16 jobs."
         },
         {
-			"type": "shell",
-			"label": "Clean",
-			"command": "rm",
-			"args": [
-				"-rf",
-				"${workspaceFolder}/build" // 删除build目录
-			],
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
-			"detail": "清理CMake构建目录"
-		},
+            "type": "shell",
+            "label": "Clean",
+            "command": "rm",
+            "args": [
+                "-rf",
+                "${workspaceFolder}/build" // 删除build目录
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "清理CMake构建目录"
+        },
+        {
+            "label": "SSH传输文件到开发板",
+            "type": "shell",
+            "command": "sshpass",
+            "args": [
+                "-p",
+                "luckfox",
+                "scp",
+                "-o",
+                "StrictHostKeyChecking=no",
+                "-r",
+                "-v",
+                "${workspaceFolder}/build/bin/LVGLDemo",
+                "root@192.168.31.252:/root/"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "通过SSH将构建文件传输到开发板"
+        },
     ]
 }

@@ -5,7 +5,7 @@
 extern "C" {
 #endif
 
-void app_lvgl_thread();
+void app_lvgl_thread(void);
 
 
 #ifdef __cplusplus

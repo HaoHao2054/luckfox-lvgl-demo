@@ -1,4 +1,4 @@
-#include "app_keypad/app_keypad_interface.h"
+#include "app_keypad/app_keypad_interface.hpp"
 #include "app_lvgl/app_lvgl_interface.h"
 
 #include <thread>

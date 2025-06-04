@@ -10,7 +10,7 @@
 namespace Bsp {
 
     // KeyPins namespace and KeyId enum are removed as keys are now dynamically added.
-    // KeyState is now defined in Key.h or can be moved to a common types file.
+    // KeyState is now defined in Key.hpp or can be moved to a common types file.
 
     class KeypadManager {
     public:
