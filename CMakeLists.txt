@@ -13,6 +13,7 @@ add_compile_options(-fdiagnostics-color=always)     # Ninja
 
 # --- Toolchain Configuration ---
 include(${CMAKE_SOURCE_DIR}/toolchain-arm-rockchip.cmake)
+# include(${CMAKE_SOURCE_DIR}/toolchain-arm-linux-gnueabihf.cmake)
 
 # --- Compiler Flags (Project-Wide) ---
 add_compile_options(

@@ -3,7 +3,7 @@
 #include <sys/time.h>
 #include <time.h>
 #include <unistd.h>
-#include "app_lvgl_ui.h"
+#include "app_lvgl_ui.hpp"
 #include "lv_drivers/display/fbdev.h"
 #include "lvgl/lvgl.h"
 
@@ -27,8 +27,8 @@ void app_lvgl_init() {
     lv_disp_drv_init(&disp_drv);
     disp_drv.draw_buf = &disp_buf;
     disp_drv.flush_cb = fbdev_flush;
-    disp_drv.hor_res = 240;
-    disp_drv.ver_res = 320;
+    disp_drv.hor_res = 320;
+    disp_drv.ver_res = 240;
     lv_disp_drv_register(&disp_drv);
 }
 
